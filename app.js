@@ -1,3 +1,4 @@
+require('dotenv').config()
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
@@ -5,7 +6,7 @@ import bodyparser from 'body-parser';
 import path from 'path';
 import cors from 'cors';
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 

@@ -4,24 +4,21 @@
   "description": "test app",
   "main": "app.js",
   "scripts": {
-    "dev": "node_modules/.bin/nodemon ./server.js --exec babel-node --",
-    "start": "node --exec babel-node ./server.js",
-    "heroku-prebuild": "rm -rf node_modules"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --require babel-core/register --require babel-polyfill ./server.js",
+    "start:prod": "node --require babel-core/register --require babel-polyfill ./server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --require babel-core/register --require babel-polyfill ./server.js",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bihire/Broadcatser.git"
   },
   "dependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/node": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@babel/polyfill": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "@babel/runtime": "^7.10.5",
-    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
@@ -44,22 +41,16 @@
     "sequelize-cli": "^6.2.0",
     "sequelize-migration-pg-extras": "^1.0.1"
   },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
+  },
   "bugs": {
     "url": "https://github.com/bihire/Broadcatser/issues"
   },
   "homepage": "https://github.com/bihire/Broadcatser#readme",
   "author": "",
-  "license": "ISC",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
-  }
+  "license": "ISC"
 }

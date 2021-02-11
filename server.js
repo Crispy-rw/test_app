@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+require('dotenv').config()
 import http from 'http';
 
 // import Promise from 'bluebird';
